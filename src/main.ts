@@ -21,7 +21,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3001;
 
   // Mendukung akses file statis
-  app.useStaticAssets(join(__dirname, '..', '..', 'public'), {
+  app.useStaticAssets(join(process.cwd(), 'public'), {
     prefix: '/public/',
   });
 
