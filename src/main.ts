@@ -18,7 +18,7 @@ async function bootstrap() {
   );
 
   // Ambil port dari env atau gunakan 3001 sebagai default
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 8000;
 
   // Mendukung akses file statis
   app.useStaticAssets(join(process.cwd(), 'public'), {
