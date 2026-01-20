@@ -21,13 +21,16 @@ async function bootstrap() {
   const port = process.env.PORT || 3001;
 
   // Mendukung akses file statis
-  app.useStaticAssets(join(process.cwd(), 'public'), {
+  app.useStaticAssets(join(__dirname, '..', '..', 'public'), {
     prefix: '/public/',
   });
 
   // Konfigurasi CORS
   app.enableCors({
-    origin: true,
+    origin: [
+      'https://tersenyum-coffe.vercel.app', // URL Vercel kamu
+      'http://localhost:3000', // Tetap izinkan localhost untuk testing
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, ngrok-skip-browser-warning',
